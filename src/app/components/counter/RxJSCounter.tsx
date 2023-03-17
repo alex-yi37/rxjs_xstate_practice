@@ -10,25 +10,26 @@ const counterStyles = {
 // https://stackoverflow.com/a/58370178
 // this is probably an instance where rxjs is overkill
 
+function createClickObservable(buttonRef: any) {
+  return fromEvent(buttonRef, "click");
+}
+
 export const RxJSCounter = () => {
   const [count, setCount] = useState(0);
 
   const buttonRef = useRef(null);
 
   useEffect(() => {
-    const clickObservable$ = fromEvent(
-      buttonRef.current as any,
-      "click"
-    ).subscribe(() => {
-      setCount(count + 1);
-    });
-    console.log("effect runs and count", count);
+    const clickObservable$ = createClickObservable(buttonRef.current).subscribe(
+      () => {
+        setCount((prevCount) => prevCount + 1);
+      }
+    );
 
     return () => {
-      clickObservable$.unsubscribe();
-      console.log("effect cleanup and count", count);
+      return clickObservable$.unsubscribe();
     };
-  }, [count]);
+  }, []);
 
   return (
     <div style={counterStyles}>
