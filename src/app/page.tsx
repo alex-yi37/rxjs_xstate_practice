@@ -1,12 +1,20 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "./page.module.css";
 
-const inter = Inter({ subsets: ['latin'] })
+import { RxJSCounter } from "./components/counter/RxJSCounter";
+import { XStateCounter } from "./components/counter/XStateCounter";
+
+import { RxJSApiValidatedInput } from "./components/api-validated-input/RxJSApiValidatedInput";
+import { XStateApiValidatedInput } from "./components/api-validated-input/XStateApiValidatedInput";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <main className={styles.main}>
+      <RxJSCounter />
+      <XStateCounter />
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
@@ -18,7 +26,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -86,6 +94,7 @@ export default function Home() {
           </p>
         </a>
       </div>
+      <div>This is another div?</div>
     </main>
-  )
+  );
 }
