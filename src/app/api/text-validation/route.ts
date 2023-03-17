@@ -1,10 +1,13 @@
-export async function GET(request: Request) {
-    console.log("owo request?", request.method)
-    return new Response("test")
-  }
+import { NextResponse } from "next/server";
 
-export async function POST(request: Request) {
-    console.log("owo req body?", request.body)
-    return new Response(request.body)
+export async function GET(request: Request) {
+  const reqUrl = new URL(request.url).searchParams;
+  const inputParam = reqUrl.get("input") || ""; // ideally add some sort of indication that incorrect param was passed
+
+  const inputIsValid = typeof inputParam === "string" && inputParam.length > 5;
+
+  return NextResponse.json({
+    user_input: inputParam,
+    is_valid: inputIsValid,
+  });
 }
-  
