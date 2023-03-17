@@ -37,7 +37,7 @@ export const RxJSCounter = () => {
       <div style={{ display: "flex", gap: 20 }}>
         <p style={{ backgroundColor: "yellow", minWidth: 50 }}>{count}</p>
         <button type="button" ref={buttonRef}>
-          Count
+          Increment
         </button>
       </div>
     </div>
