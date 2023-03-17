@@ -1,41 +1,17 @@
 "use client";
-import { createMachine, assign } from "xstate";
 import { useMachine } from "@xstate/react";
+
+import { counterMachine } from "./counter-machine";
 
 const counterStyles = {
   border: "1px solid green",
 };
 
-const counterMachine = createMachine(
-  {
-    id: "counter",
-    schema: {
-      // The context (extended state) of the machine
-      context: { count: 0 } as { count: number },
-      // The events this machine handles
-      events: {} as { type: "INCREMENT" },
-    },
-    initial: "active",
-    states: {
-      active: {
-        on: { INCREMENT: { target: "active", actions: "incrementCount" } },
-      },
-    },
-    /* Other config... */
-  },
-  {
-    actions: {
-      incrementCount: (context) => {
-        console.log("asd context vlaue", context);
-      },
-    },
-  }
-);
-
 export const XStateCounter = () => {
   const [current, send] = useMachine(counterMachine);
 
   const increment = () => {
+    console.log("sending inc xstate");
     send({ type: "INCREMENT" });
   };
 
@@ -47,7 +23,7 @@ export const XStateCounter = () => {
           {current.context.count}
         </p>
         <button type="button" onClick={increment}>
-          Count
+          Increment
         </button>
       </div>
     </div>
