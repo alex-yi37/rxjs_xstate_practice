@@ -1,6 +1,8 @@
 "use client";
 import { useMachine } from "@xstate/react";
 
+import { Button } from "../../lib-components";
+
 import { counterMachine } from "./counter-machine";
 
 const counterStyles = {
@@ -22,9 +24,7 @@ export const XStateCounter = () => {
         <p style={{ backgroundColor: "yellow", minWidth: 50 }}>
           {current.context.count}
         </p>
-        <button type="button" onClick={increment}>
-          Increment
-        </button>
+        <Button handleClick={increment}>Increment</Button>
       </div>
     </div>
   );
