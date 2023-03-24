@@ -3,10 +3,10 @@ import { useMachine } from "@xstate/react";
 
 import { simulatedFetch } from "@/utils";
 
-const XStateApiValidatedInput = () => {
+const VanillaApiValidatedInput = () => {
   return (
     <div>
-      <h3>xstate validated input</h3>
+      <h3>validated input</h3>
       <form>
         <div>
           <label htmlFor="inputVal">
@@ -18,4 +18,4 @@ const XStateApiValidatedInput = () => {
   );
 };
 
-export default XStateApiValidatedInput;
+export default VanillaApiValidatedInput;

@@ -2,19 +2,33 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "./page.module.css";
 
-import { RxJSCounter } from "./components/counter/RxJSCounter";
-import { XStateCounter } from "./components/counter/XStateCounter";
-
-import { RxJSApiValidatedInput } from "./components/api-validated-input/RxJSApiValidatedInput";
-import { XStateApiValidatedInput } from "./components/api-validated-input/XStateApiValidatedInput";
+import {
+  VanillaCounter,
+  RxJSCounter,
+  XStateCounter,
+} from "./components/counter";
+import {
+  VanillaApiValidatedInput,
+  RxJSApiValidatedInput,
+  XStateApiValidatedInput,
+} from "./components/api-validated-input";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <RxJSCounter />
-      <XStateCounter />
+      <div className="ui-set">
+        <VanillaCounter />
+        <RxJSCounter />
+        <XStateCounter />
+      </div>
+      <div className="ui-set">
+        <VanillaApiValidatedInput />
+        <RxJSApiValidatedInput />
+        <XStateApiValidatedInput />
+      </div>
+
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;

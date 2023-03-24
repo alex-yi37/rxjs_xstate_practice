@@ -14,7 +14,7 @@ function createClickObservable(buttonRef: any) {
   return fromEvent(buttonRef, "click");
 }
 
-export const RxJSCounter = () => {
+const RxJSCounter = () => {
   const [count, setCount] = useState(0);
 
   const buttonRef = useRef(null);
@@ -43,3 +43,5 @@ export const RxJSCounter = () => {
     </div>
   );
 };
+
+export default RxJSCounter;

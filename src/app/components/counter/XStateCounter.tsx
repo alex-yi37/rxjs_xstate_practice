@@ -9,11 +9,10 @@ const counterStyles = {
   border: "1px solid green",
 };
 
-export const XStateCounter = () => {
+const XStateCounter = () => {
   const [current, send] = useMachine(counterMachine);
 
   const increment = () => {
-    console.log("sending inc xstate");
     send({ type: "INCREMENT" });
   };
 
@@ -29,3 +28,5 @@ export const XStateCounter = () => {
     </div>
   );
 };
+
+export default XStateCounter;
