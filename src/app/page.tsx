@@ -12,15 +12,25 @@ import {
   RxJSApiValidatedInput,
   XStateApiValidatedInput,
 } from "./components/api-validated-input";
+import { RxJSIncrementingCounter } from "./components/counter/RxJSCounter";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className="ui-set">
+      <div
+        className="ui-set"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-evenly",
+          minHeight: 400,
+        }}
+      >
         <VanillaCounter />
         <RxJSCounter />
+        <RxJSIncrementingCounter />
         <XStateCounter />
       </div>
       <div className="ui-set">
