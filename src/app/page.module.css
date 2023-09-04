@@ -151,6 +151,15 @@
   background-clip: content-box;
 }
 
+/* my stuff */
+.ui-set {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+/* my stuff */
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -269,3 +278,4 @@
     transform: rotate(0deg);
   }
 }
+
