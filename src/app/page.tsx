@@ -13,6 +13,7 @@ import {
   XStateApiValidatedInput,
 } from "./components/api-validated-input";
 import { RxJSIncrementingCounter } from "./components/counter/RxJSCounter";
+import { XStateIncCounter } from "./components/counter/XStateCounter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function Home() {
         <RxJSCounter />
         <RxJSIncrementingCounter />
         <XStateCounter />
+        <XStateIncCounter />
       </div>
       <div className="ui-set">
         <VanillaApiValidatedInput />
