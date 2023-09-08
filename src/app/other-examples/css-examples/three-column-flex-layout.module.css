@@ -1,0 +1,88 @@
+
+/* universal styles between all three implementations */
+.container{
+  display: flex;
+  border: 1px solid;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.container > div {
+  flex: 1;
+  margin: 5px;
+  border: 1px solid;
+  box-sizing: border-box;
+}
+
+div.inner {
+  border-color: red;
+}
+
+/* universal styles between all three implementations */
+
+
+/* implementation 1 styles, makes use of position relative and absolute */
+.inner-alt-1 {
+  position: relative;
+  overflow: auto;
+}
+
+.inner-alt-1 > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+/* implementation 2 styles, relies on position relative, but then height: 0; min-height: 100% trick */
+.inner-alt-2 {
+  position: relative;
+  overflow: auto;
+}
+
+.inner-alt-2 > div {
+  height: 0;
+  min-height: 100%;
+}
+
+/* implementation 3 styles, makes use of position relative and absolute */
+.container-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  border: 1px solid;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.container-3 > div {
+  border: 1px solid;
+  box-sizing: border-box;
+}
+
+.inner-alt-3 {
+  overflow: auto;
+  height: 0;
+  min-height: 100%;
+}
+
+/* implementation 4 styles */
+.container-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  border: 1px solid;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.container-4 > div {
+  border: 1px solid;
+  box-sizing: border-box;
+}
+
+.inner-alt-4 {
+  overflow: auto;
+  contain: size;
+}
